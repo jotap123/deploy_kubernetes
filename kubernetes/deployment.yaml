@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: real-estate
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: real-estate
+  template:
+    metadata:
+      labels:
+        app: real-estate
+    spec:
+      containers:
+      - name: real-estate
+        image: 54e5ef7c9fb5461ba8e5bfdfb25ddb7d.azurecr.io/kubernetes_test
+        # imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: acr-secret
