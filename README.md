@@ -1,62 +1,16 @@
-# {{cookiecutter.project_name}}
+# Deploying in Kubernetes
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-{{cookiecutter.description}}
+## Description
+This project has the sole purpose of serving as a template for a kubernetes deployment.
+To serve the model I used the pickle stored in the `models` folder in this repo.
+The application was deployed to a Container Registry, and the image (as can be seen in `Dockerfile`) was loaded in the kubernetes pods exposing the API (as can be seen in `deploy.py`)
 
 ## Project Organization
-
-```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for {{ cookiecutter.module_name }}
-│                         and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── {{ cookiecutter.module_name }}                <- Source code for use in this project.
-    │
-    ├── __init__.py    <- Makes {{ cookiecutter.module_name }} a Python module
-    │
-    ├── data           <- Scripts to download or generate data
-    │   └── make_dataset.py
-    │
-    ├── features       <- Scripts to turn raw data into features for modeling
-    │   └── build_features.py
-    │
-    ├── models         <- Scripts to train models and then use trained models to make
-    │   │                 predictions
-    │   ├── predict_model.py
-    │   └── train_model.py
-    │
-    └── visualization  <- Scripts to create exploratory and results oriented visualizations
-        └── visualize.py
-```
-
---------
-
+For the purposes of deploying in Kubernetes the code for this project was not made available in scripts
+I used the Dockerfile to deploy the application via the `deploy_code.py` script and ran the `deploy.py` to expose the API in order to serve the model.
+This project was tested in an Azure environment and for that, the folder azure-pipelines was used for Continuos Integration and Continuos Deployment
+In the kubernetes folder lies all the configuration of the kubernetes cluster used

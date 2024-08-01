@@ -1,8 +1,6 @@
 paeio
 scikit-learn
 xgboost
-fastapi
-uvicorn
 colorlog
 click
 colored_traceback
